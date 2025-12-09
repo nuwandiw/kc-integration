@@ -1,15 +1,16 @@
 package com.calendar.frontendapp.controller;
 
 import com.calendar.frontendapp.config.OAuth2Properties;
+import com.calendar.frontendapp.security.oauth2.OAuth2Client;
 import com.calendar.frontendapp.service.OAuth2TokenService;
 import com.calendar.frontendapp.service.OAuthUtil;
-import com.calendar.frontendapp.service.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -31,7 +32,7 @@ public class AuthController {
     private OAuth2TokenService oauth2TokenService;
 
     @Autowired
-    private UserInfoService userInfoService;
+    private OAuth2Client oauth2Client;
 
     @GetMapping("/")
     public Mono<String> index() {
@@ -50,42 +51,24 @@ public class AuthController {
         return Mono.just("calendar");
     }
 
-    /**
-     * Initiates RFC 6749 compliant OAuth 2.0 authorization request.
-     * Generates PKCE parameters and prepares the authorization URL for redirect.
-     * Reactive implementation using WebSession from ServerWebExchange.
-     *
-     * @param exchange the ServerWebExchange for accessing WebSession
-     * @param model    the Model for view rendering
-     * @return Mono with login view name and authorization URL
-     */
     @GetMapping("/login")
     public Mono<String> login(ServerWebExchange exchange, Model model) {
-
         return exchange.getSession()
                 .flatMap(session -> {
-                    // Generate PKCE parameters per RFC 7636
-                    String state = oauthUtil.generateState();
-                    String codeVerifier = oauthUtil.generateCodeVerifier();
-                    String codeChallenge = oauthUtil.generateCodeChallenge(codeVerifier);
-
-                    // Store state and code_verifier in session for later validation
-                    session.getAttributes().put("oauth_state", state);
-                    session.getAttributes().put("code_verifier", codeVerifier);
-
-                    // Build authorization URL per RFC 6749 Section 4.1.1
-                    String authorizationUrl = oauthUtil.buildAuthorizationUrl(
-                            oauth2Properties.getAuthorizationUri(),
-                            oauth2Properties.getClientId(),
-                            oauth2Properties.getRedirectUri(),
-                            oauth2Properties.getScope(),
-                            state,
-                            codeChallenge
-                    );
-
-                    model.addAttribute("authorizationUrl", authorizationUrl);
-
+                    model.addAttribute("session", session);
                     return Mono.just("login");
+                });
+    }
+
+    @PostMapping("/oauth2/authorize")
+    public Mono<String> authorize(ServerWebExchange exchange) {
+        return exchange.getSession()
+                .flatMap(session -> {
+                    String authorizationUrl = oauth2Client.authorizationUrl(session);
+                    if (authorizationUrl != null) {
+                        return Mono.just("redirect:" + authorizationUrl);
+                    }
+                    return Mono.just("redirect:/login?error=authorization_failed");
                 });
     }
 

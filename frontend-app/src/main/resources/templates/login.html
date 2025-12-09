@@ -84,9 +84,11 @@
     <div class="login-container">
         <h1>Welcome</h1>
         <div class="login-content">
-            <a th:href="${authorizationUrl}" class="oauth2-button google-button">
-                <span>Sign in with IdP</span>
-            </a>
+            <form method="post" th:action="@{/oauth2/authorize}">
+                <button type="submit" class="oauth2-button google-button">
+                    <span>Sign in with IdP</span>
+                </button>
+            </form>
         </div>
         <p class="info-text">
             This application uses OAuth2 OIDC Authorization Code Grant flow.

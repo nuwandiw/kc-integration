@@ -25,7 +25,7 @@ public class SessionAuthenticationFilter implements WebFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
         String path = exchange.getRequest().getPath().value();
-        if (path.equals("/") || path.equals("/login") || path.equals("/oauth2/callback")) {
+        if (path.equals("/") || path.equals("/login") || path.startsWith("/oauth2/callback") || path.equals("/oauth2/authorize")) {
             return chain.filter(exchange);
         }
         return exchange.getSession()

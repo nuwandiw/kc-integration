@@ -4,6 +4,12 @@ spring:
 
   # Custom OAuth2 configuration for login page
   oauth2:
+    client:
+      id: frontend-app
+      scope: basic
+      authorization-uri: https://kc.idp.com:8443/realms/IBM/protocol/openid-connect/auth
+      token-uri: https://kc.idp.com:8443/realms/IBM/protocol/openid-connect/token
+      redirect-uri: http://localhost:8081/oauth2/callback
     custom-idp:
       client-id: frontend-app
       redirect-uri: http://localhost:8081/oauth2/callback

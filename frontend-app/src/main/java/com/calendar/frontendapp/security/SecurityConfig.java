@@ -1,6 +1,5 @@
-package com.calendar.frontendapp.config;
+package com.calendar.frontendapp.security;
 
-import com.calendar.frontendapp.security.SessionAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -40,9 +39,10 @@ public class SecurityConfig {
             // Configure authorization rules
             .authorizeExchange((requests) ->
                 requests
-                    .pathMatchers("/", "/login", "/oauth2/callback").permitAll()
+                    .pathMatchers("/", "/login", "/oauth2/authorize", "/oauth2/callback").permitAll()
                     .anyExchange().authenticated()
             )
+            .csrf().disable()
             .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
             .addFilterBefore(sessionAuthenticationFilter,
                     SecurityWebFiltersOrder.AUTHENTICATION);
