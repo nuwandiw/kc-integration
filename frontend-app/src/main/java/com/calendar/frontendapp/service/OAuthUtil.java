@@ -1,4 +1,4 @@
-package com.example.frontendapp.service;
+package com.calendar.frontendapp.service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

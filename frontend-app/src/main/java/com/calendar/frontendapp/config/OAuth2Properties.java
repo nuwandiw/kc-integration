@@ -1,4 +1,4 @@
-package com.example.frontendapp.config;
+package com.calendar.frontendapp.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;

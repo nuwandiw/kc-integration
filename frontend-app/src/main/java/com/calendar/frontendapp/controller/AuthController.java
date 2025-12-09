@@ -1,9 +1,9 @@
-package com.example.frontendapp.controller;
+package com.calendar.frontendapp.controller;
 
-import com.example.frontendapp.config.OAuth2Properties;
-import com.example.frontendapp.service.OAuth2TokenService;
-import com.example.frontendapp.service.OAuthUtil;
-import com.example.frontendapp.service.UserInfoService;
+import com.calendar.frontendapp.config.OAuth2Properties;
+import com.calendar.frontendapp.service.OAuth2TokenService;
+import com.calendar.frontendapp.service.OAuthUtil;
+import com.calendar.frontendapp.service.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

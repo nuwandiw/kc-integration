@@ -1,4 +1,4 @@
-package com.example.frontendapp.security;
+package com.calendar.frontendapp.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

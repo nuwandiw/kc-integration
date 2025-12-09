@@ -1,4 +1,4 @@
-package com.example.frontendapp.service;
+package com.calendar.frontendapp.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

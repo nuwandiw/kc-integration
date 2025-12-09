@@ -1,4 +1,4 @@
-package com.example.frontendapp.security;
+package com.calendar.frontendapp.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,6 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
-import reactor.util.annotation.NonNull;
 
 import java.net.URI;
 

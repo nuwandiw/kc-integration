@@ -1,6 +1,6 @@
-package com.example.frontendapp.config;
+package com.calendar.frontendapp.config;
 
-import com.example.frontendapp.security.SessionAuthenticationFilter;
+import com.calendar.frontendapp.security.SessionAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
