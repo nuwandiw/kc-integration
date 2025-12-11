@@ -7,6 +7,7 @@ public class OAuth2Properties {
     private String scope;
     private String authorizationUri;
     private String tokenUri;
+    private String clientSecret;
 
     private OAuth2Properties(Builder builder) {
         this.clientId = builder.clientId;
@@ -14,6 +15,7 @@ public class OAuth2Properties {
         this.scope = builder.scope;
         this.authorizationUri = builder.authorizationUri;
         this.tokenUri = builder.tokenUri;
+        this.clientSecret = builder.clientSecret;
     }
 
     public static Builder builder() {
@@ -40,12 +42,17 @@ public class OAuth2Properties {
         return tokenUri;
     }
 
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
     public static class Builder {
         private String clientId;
         private String redirectUri;
         private String scope;
         private String authorizationUri;
         private String tokenUri;
+        private String clientSecret;
 
         public Builder clientId(String clientId) {
             this.clientId = clientId;
@@ -69,6 +76,11 @@ public class OAuth2Properties {
 
         public Builder tokenUri(String tokenUri) {
             this.tokenUri = tokenUri;
+            return this;
+        }
+
+        public Builder clientSecret(String clientSecret) {
+            this.clientSecret = clientSecret;
             return this;
         }
 

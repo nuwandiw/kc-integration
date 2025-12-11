@@ -5,8 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import static org.springframework.web.reactive.function.client.ExchangeFilterFunction.ofResponseProcessor;
-
 @Configuration
 public class OAuth2ClientConfig {
 
@@ -25,9 +23,11 @@ public class OAuth2ClientConfig {
     @Value("${spring.oauth2.client.token-uri}")
     private String tokenUri;
 
+    @Value("${spring.oauth2.client.secret}")
+    private String clientSecret;
+
     private WebClient webClient() {
         return WebClient.builder()
-                .filter(ofResponseProcessor(new ClientErrorResponseHandler()))
                 .build();
     }
 
@@ -38,6 +38,7 @@ public class OAuth2ClientConfig {
                 .scope(scope)
                 .authorizationUri(authorizationUri)
                 .tokenUri(tokenUri)
+                .clientSecret(clientSecret)
                 .build();
     }
 

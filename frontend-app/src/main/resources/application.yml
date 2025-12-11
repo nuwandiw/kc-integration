@@ -2,7 +2,6 @@ spring:
   application:
     name: frontend-app
 
-  # Custom OAuth2 configuration for login page
   oauth2:
     client:
       id: frontend-app
@@ -19,3 +18,20 @@ spring:
 
 server:
   port: 8081
+
+keycloak:
+  policy-enforcer-config:
+    enforcement-mode: ENFORCING
+    paths:
+      - path: /*
+        methods:
+          - method: "*"
+            scopes:
+              - "*"
+  security-constraints:
+    - auth-roles:
+        - "*"
+  security-collections:
+    - name:
+      patterns:
+        - /*
