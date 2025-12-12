@@ -265,7 +265,6 @@
         <div id="welcome-section" th:style="${calendar != null ? 'display:none' : ''}">
             <div class="welcome-message">
                 <p>You have successfully logged in with OAuth2 OIDC!</p>
-                <p>Click the button below to navigate to the Calendar page.</p>
             </div>
 
             <button id="calendar-button" class="calendar-button" th:data-access-token="${accessToken}" onclick="callCalendarApi()">Show Calendar</button>

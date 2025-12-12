@@ -3,13 +3,8 @@ package com.calendar.frontendapp.security.oauth2.dpop;
 import java.security.KeyPair;
 
 import org.jboss.logging.Logger;
-import org.keycloak.common.crypto.CryptoIntegration;
 import org.keycloak.common.util.KeyUtils;
-import org.keycloak.crypto.KeyUse;
-import org.keycloak.jose.jwk.JWK;
-import org.keycloak.jose.jwk.JWKBuilder;
 import org.keycloak.util.DPoPGenerator;
-import org.keycloak.util.JWKSUtils;
 
 public class DPoPService {
 
@@ -20,8 +15,6 @@ public class DPoPService {
 
     private KeyPair keyPair;
 
-    private String lastDpopProof;
-
     public DPoPService() {
         try {
             loadSSHKeyPair();
@@ -30,28 +23,12 @@ public class DPoPService {
         }
     }
 
-    public String getLastDpopProof() {
-        return lastDpopProof;
-    }
-
     public String generateDPoP(String httpMethod, String endpointUrl, String accessToken) {
         if (keyPair == null) {
             generateKeys();
         }
-        lastDpopProof = DPoPGenerator.generateRsaSignedDPoPProof(keyPair, httpMethod, endpointUrl, accessToken);
-        return lastDpopProof;
+        return DPoPGenerator.generateRsaSignedDPoPProof(keyPair, httpMethod, endpointUrl, accessToken);
     }
-
-    public String generateKeyThumbprint() {
-        if (keyPair == null) {
-            generateKeys();
-        }
-
-        JWK jwk = JWKBuilder.create()
-                .rsa(keyPair.getPublic(), KeyUse.SIG);
-        return JWKSUtils.computeThumbprint(jwk);
-    }
-
     private void loadSSHKeyPair() throws Exception {
         try {
             keyPair = KeyPairLoader.loadKeyPair(SSH_PRIVATE_KEY_PATH, SSH_PUBLIC_KEY_PATH);

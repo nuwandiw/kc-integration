@@ -3,10 +3,9 @@ package com.calendar.frontendapp.security.oauth2;
 import com.calendar.frontendapp.security.oauth2.dpop.DPoPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class OAuth2ClientConfig {
@@ -29,28 +28,17 @@ public class OAuth2ClientConfig {
     @Value("${spring.oauth2.client.secret}")
     private String clientSecret;
 
-    private boolean dpopEnabled = true;
+    @Value("${spring.oauth2.client.dpop:false}")
+    private boolean dpopEnabled;
 
     @Autowired
     DPoPService dPoPService;
 
-    /**
-     * Creates a RestTemplate bean for making HTTP requests to the authorization server.
-     * RestTemplate is a Spring synchronous HTTP client for making REST calls.
-     *
-     * @param builder the RestTemplateBuilder for customizing the RestTemplate
-     * @return a configured RestTemplate instance
-     */
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    public WebClient webClient(WebClient.Builder builder) {
         return builder.build();
     }
 
-    /**
-     * Creates OAuth2Properties from configuration values.
-     *
-     * @return OAuth2Properties instance with all configured values
-     */
     private OAuth2Properties oAuth2Properties() {
         return OAuth2Properties.builder()
                 .clientId(clientId)
@@ -59,17 +47,12 @@ public class OAuth2ClientConfig {
                 .authorizationUri(authorizationUri)
                 .tokenUri(tokenUri)
                 .clientSecret(clientSecret)
-                .dpopEnabled(true)
+                .dpopEnabled(dpopEnabled)
                 .build();
     }
 
-    /**
-     * Creates the OAuth2Client bean with RestTemplate.
-     *
-     * @return OAuth2Client configured with properties and RestTemplate
-     */
     @Bean
-    public OAuth2Client oAuth2Client(RestTemplate restTemplate) {
-        return new OAuth2Client(oAuth2Properties(), restTemplate, dPoPService);
+    public OAuth2Client oAuth2Client(WebClient webClient) {
+        return new OAuth2Client(oAuth2Properties(), webClient, dPoPService);
     }
 }

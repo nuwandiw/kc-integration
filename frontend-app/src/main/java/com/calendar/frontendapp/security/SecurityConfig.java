@@ -5,57 +5,59 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtDecoders;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoders;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebFluxSecurity
 public class SecurityConfig {
 
-//    @Value("${spring.oauth2.resourceserver.jwt.issuer-uri}")
-//    private String issuerUri;
+    @Value("${spring.oauth2.resourceserver.jwt.issuer-uri}")
+    private String issuerUri;
 
     @Bean
     public SessionAuthenticationFilter sessionAuthenticationFilter() {
         return new SessionAuthenticationFilter();
     }
 
-//    @Bean
-//    @Order(1)
-//    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .securityMatcher("/api/**")
-//                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-//                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
-//                .csrf(csrf -> csrf.disable());
-//
-//        return http.build();
-//    }
-
-    // Chain 2: Session-based authentication for web pages
     @Bean
-    @Order(2)
-    public SecurityFilterChain webSecurityFilterChain(HttpSecurity http,
-                                                      SessionAuthenticationFilter sessionAuthenticationFilter) throws Exception {
+    @Order(1)
+    public SecurityWebFilterChain apiSecurityFilterChain(ServerHttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/oauth2/authorize", "/oauth2/callback").permitAll()
-                        .anyRequest().authenticated()
+                .authorizeExchange(exchanges -> exchanges
+                        .pathMatchers("/api/**").authenticated()
+                        .anyExchange().permitAll()
                 )
-                .csrf(csrf -> csrf.disable())
-                .addFilterBefore(sessionAuthenticationFilter, BasicAuthenticationFilter.class);
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(Customizer.withDefaults())
+                )
+                .csrf(csrf -> csrf.disable());
+        return http.build();
+    }
+
+    @Bean
+    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
+                                                         SessionAuthenticationFilter sessionAuthenticationFilter) {
+        http
+                .authorizeExchange(exchanges -> exchanges
+                        .pathMatchers("/", "/login", "/oauth2/authorize", "/oauth2/callback").permitAll()
+                        .anyExchange().authenticated()
+                )
+                .addFilterBefore(sessionAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION);
 
         return http.build();
     }
 
     @Bean
-    public JwtDecoder jwtDecoder() {
-        String issuerUri = "https://kc.idp.com:8443/realms/IBM";
-        return JwtDecoders.fromIssuerLocation(issuerUri);
+    public ReactiveJwtDecoder reactiveJwtDecoder() {
+        return ReactiveJwtDecoders.fromIssuerLocation(issuerUri);
     }
+
 
 }

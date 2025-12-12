@@ -14,10 +14,6 @@ public class OAuthUtil {
     private static final int STATE_LENGTH = 32;
     private static final int CODE_VERIFIER_LENGTH = 64;
 
-    /**
-     * Generates a cryptographically secure random string for use as OAuth2 state or code_verifier.
-     * Characters are from the unreserved characters set per RFC 3986.
-     */
     public static String generateRandomString(int length) {
         SecureRandom random = new SecureRandom();
         StringBuilder result = new StringBuilder(length);
@@ -29,25 +25,14 @@ public class OAuthUtil {
         return result.toString();
     }
 
-    /**
-     * Generates a state parameter for CSRF protection (RFC 7234).
-     */
     public static String generateState() {
         return generateRandomString(STATE_LENGTH);
     }
 
-    /**
-     * Generates a code verifier for PKCE (RFC 7636).
-     */
     public static String generateCodeVerifier() {
         return generateRandomString(CODE_VERIFIER_LENGTH);
     }
 
-    /**
-     * Generates a code challenge from a code verifier using S256 method (SHA-256).
-     * Per RFC 7636 Section 4.2:
-     * code_challenge = BASE64URL(SHA256(code_verifier))
-     */
     public static String generateCodeChallenge(String codeVerifier) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -58,13 +43,6 @@ public class OAuthUtil {
         }
     }
 
-    /**
-     * Builds an RFC 6749 compliant OAuth 2.0 authorization request URL.
-     * Per RFC 6749 Section 4.1.1, the authorization request includes:
-     * - REQUIRED: client_id, response_type, redirect_uri
-     * - RECOMMENDED: scope, state
-     * - OPTIONAL: code_challenge, code_challenge_method (PKCE)
-     */
     public static String buildAuthorizationUrl(String authorizationEndpoint,
                                         String clientId,
                                         String redirectUri,
@@ -81,32 +59,5 @@ public class OAuthUtil {
                 .queryParam("code_challenge_method", "S256")
                 .build()
                 .toUriString();
-    }
-
-    /**
-     * Builds an RFC 6749 Section 4.1.3 compliant access token request body.
-     * Per RFC 6749 Section 4.1.3, the token request includes:
-     * - REQUIRED: grant_type, client_id, redirect_uri, code
-     * - OPTIONAL: code_verifier (RFC 7636 - PKCE)
-     *
-     * @param clientId the client identifier
-     * @param redirectUri the redirect URI
-     * @param authorizationCode the authorization code from the authorization response
-     * @param codeVerifier the PKCE code verifier
-     * @return a map of token request parameters
-     */
-    public java.util.Map<String, String> buildTokenRequestBody(String clientId,
-                                                                String redirectUri,
-                                                                String authorizationCode,
-                                                                String codeVerifier) {
-        java.util.Map<String, String> params = new java.util.HashMap<>();
-        // RFC 6749 Section 4.1.3 - Required parameters
-        params.put("grant_type", "authorization_code");
-        params.put("client_id", clientId);
-        params.put("redirect_uri", redirectUri);
-        params.put("code", authorizationCode);
-        // RFC 7636 - PKCE code_verifier
-        params.put("code_verifier", codeVerifier);
-        return params;
     }
 }
