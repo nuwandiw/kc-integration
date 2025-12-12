@@ -167,6 +167,9 @@ mvn spring-boot:run
 
 The application will start on `http://localhost:8081`
 
+### Test
+//Todo add integration and unit tests
+
 ## Endpoints
 
 ### Public Endpoints
