@@ -1,4 +1,4 @@
-## Running the application (with OpenJDL keycloak dev)
+## Running the application (with OpenJDK keycloak dev)
 
 ## Pre-requisites
 * Java 17 or later
