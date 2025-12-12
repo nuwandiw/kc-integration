@@ -8,8 +8,6 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.security.oauth2.jwt.ReactiveJwtDecoders;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -21,9 +19,12 @@ public class SecurityConfig {
     @Value("${spring.oauth2.resourceserver.jwt.issuer-uri}")
     private String issuerUri;
 
+    @Value("${frontend.authorization.role:#{null}}")
+    private String checkedRole;
+
     @Bean
-    public SessionAuthenticationFilter sessionAuthenticationFilter() {
-        return new SessionAuthenticationFilter();
+    public SessionAuthenticationFilter sessionAuthenticationFilter(ReactiveJwtDecoder reactiveJwtDecoder) {
+        return new SessionAuthenticationFilter(reactiveJwtDecoder, checkedRole);
     }
 
     @Bean

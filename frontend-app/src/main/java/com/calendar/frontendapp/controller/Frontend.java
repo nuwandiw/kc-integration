@@ -28,6 +28,7 @@ public class Frontend {
     @GetMapping("/home")
     public Mono<String> home(WebSession session, Model model) {
         model.addAttribute("message", "Welcome to Home");
+        model.addAttribute("username", session.getAttribute("username"));
         model.addAttribute("accessToken", (String) session.getAttributes().get("access_token"));
         return Mono.just("home");
     }

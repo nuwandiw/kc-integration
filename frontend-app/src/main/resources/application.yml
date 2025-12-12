@@ -16,6 +16,10 @@ spring:
       redirect-uri: http://localhost:8081/oauth2/callback
       dpop: true
 
+frontend:
+  authorization:
+    role: my-role
+
 server:
   port: 8081
 
