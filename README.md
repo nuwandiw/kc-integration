@@ -16,4 +16,4 @@
 1. Move to  `frontend-app` directory.
 2. Create `ssh` directory and place RSA key/value.
 3. Start the Spring boot application with `mvn spring-boot:run`
-4. In the browser, navigate to http://locahsot:8081
+4. In the browser, navigate to http://localhsot:8081
