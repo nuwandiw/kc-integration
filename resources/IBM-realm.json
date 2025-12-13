@@ -27,7 +27,7 @@
   "oauth2DevicePollingInterval" : 5,
   "enabled" : true,
   "sslRequired" : "external",
-  "registrationAllowed" : false,
+  "registrationAllowed" : true,
   "registrationEmailAsUsername" : false,
   "rememberMe" : false,
   "verifyEmail" : false,
@@ -393,6 +393,37 @@
   "webAuthnPolicyPasswordlessAcceptableAaguids" : [ ],
   "webAuthnPolicyPasswordlessExtraOrigins" : [ ],
   "users" : [ {
+    "id" : "9da95986-4ba1-4d77-895d-c9303dd5c7c7",
+    "username" : "dahami",
+    "firstName" : "dahami",
+    "lastName" : "fernando",
+    "email" : "daha@d.com",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765611562852,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "5a27fdd2-36b2-4b84-a771-e937180517b7",
+      "type" : "password",
+      "createdDate" : 1765611562887,
+      "secretData" : "{\"value\":\"A+NwoVu8S95Im8s7aGPuY9sd4096rvBJSZ+EyorEjGQ=\",\"salt\":\"9c4eGqzOv01AMNz7lnyswQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "1f59233a-6b17-40e0-a617-f906d17c6e27",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765616765061,
+      "secretData" : "{\"answer\":\"kj\"}",
+      "credentialData" : "{\"question\":\"What is your favorite food?\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
+    "clientRoles" : {
+      "frontend-app" : [ "my-role" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
     "id" : "0a353598-0659-4de6-9bb4-deacd296e520",
     "username" : "dmax",
     "firstName" : "du",
@@ -409,6 +440,12 @@
       "createdDate" : 1765557129697,
       "secretData" : "{\"value\":\"Y2fsXrb16KXBQ4Vh6f/qTi+csL0x2DgZQNCwXfrmrzY=\",\"salt\":\"E1uvgXNnfzcMrx2baKSuog==\",\"additionalParameters\":{}}",
       "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "a826c45d-969e-4004-95a6-53537eaf8c71",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765606899019,
+      "secretData" : "{\"answer\":\"mango\"}",
+      "credentialData" : "{\"question\":\"What is your favorite food?\"}"
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
@@ -427,7 +464,7 @@
     "emailVerified" : false,
     "enabled" : true,
     "createdTimestamp" : 1765221348088,
-    "totp" : false,
+    "totp" : true,
     "credentials" : [ {
       "id" : "4d532423-1436-4e4a-b2e2-5659aaf8906d",
       "type" : "password",
@@ -435,6 +472,99 @@
       "createdDate" : 1765221364746,
       "secretData" : "{\"value\":\"X0QQkAGFDfPsB0TUtpXhLhmOnnV+ia5X36NsTEOXLuw=\",\"salt\":\"i1uzCBoxqKarObHxm2Y1hw==\",\"additionalParameters\":{}}",
       "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "5f112b72-f95c-4908-804a-765f1a96d59e",
+      "type" : "otp",
+      "userLabel" : "phone",
+      "createdDate" : 1765605184798,
+      "secretData" : "{\"value\":\"pBA9FdpDvP4fDFmTusp2\"}",
+      "credentialData" : "{\"subType\":\"totp\",\"digits\":6,\"counter\":0,\"period\":30,\"algorithm\":\"HmacSHA1\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "3e5d8ce0-c4a1-4738-93f3-3d54b4bca943",
+    "username" : "mahisha",
+    "firstName" : "mahisha",
+    "lastName" : "w",
+    "email" : "dfdf@dss.com",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765612099230,
+    "totp" : true,
+    "credentials" : [ {
+      "id" : "2264efde-d406-4089-a4af-2f8a1e7298bc",
+      "type" : "password",
+      "createdDate" : 1765612099288,
+      "secretData" : "{\"value\":\"5QDuqfqaf6fz8imI/CrJYBcat4ERdZztlnninMgRjhQ=\",\"salt\":\"1LLiKj0a8Se7kAN8aI3nbw==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "887c7725-9ed4-46f8-8851-c7f6c2fbf613",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765612111997,
+      "secretData" : "{\"answer\":\"dm\"}",
+      "credentialData" : "{\"question\":\"What is the name of your first pet?\"}"
+    }, {
+      "id" : "9dcfa2b2-46cd-4af2-9ece-b9212e43ffbd",
+      "type" : "otp",
+      "userLabel" : "m",
+      "createdDate" : 1765612195471,
+      "secretData" : "{\"value\":\"eGP9TV8dD8iqbJ0wn8L1\"}",
+      "credentialData" : "{\"subType\":\"totp\",\"digits\":6,\"counter\":0,\"period\":30,\"algorithm\":\"HmacSHA1\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "dd897f4b-c5dc-4294-b8b2-eed691cbd256",
+    "username" : "malisha",
+    "firstName" : "clair",
+    "lastName" : "malisha",
+    "email" : "aa@s.cp",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765611945992,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "9569432c-fd2a-4c59-8d18-06c0c3ec89f7",
+      "type" : "password",
+      "createdDate" : 1765611946054,
+      "secretData" : "{\"value\":\"wHGbA0+ud8SWAdLxxDSVrAvz1RqQXnxsXApICVXvR+E=\",\"salt\":\"k8967ORf/HipnjzBHdp4OQ==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "b4dfa800-b7e0-4f17-a036-3e0f5d405142",
+    "username" : "nayana",
+    "firstName" : "nayana",
+    "lastName" : "sam",
+    "email" : "nay@m.com",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765581664275,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "4b2eabae-c596-47c8-9963-f51002109430",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1765581676371,
+      "secretData" : "{\"value\":\"8j3tPEBirMiQCcFYaEcOo8F0/CRd4on1Cl4Xm/ecTEA=\",\"salt\":\"v9CrxCSozUDsWTdatV42Vg==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "146cc66f-30c0-4004-84cb-ebf513f632b8",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765611042200,
+      "secretData" : "{\"answer\":\"curd\"}",
+      "credentialData" : "{\"question\":\"What is your favorite food?\"}"
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
@@ -459,11 +589,17 @@
       "secretData" : "{\"value\":\"CdIHCJ6FG2ucJXN7+HkOqa55IQ+CQSxPDq2BzluxRww=\",\"salt\":\"f+mhJccidr1O2SPIBRNsYw==\",\"additionalParameters\":{}}",
       "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
     }, {
-      "id" : "0e63b0ec-d0f6-471f-9eab-9c87e525ebd3",
+      "id" : "2685ed79-2a16-4dd4-9353-94f7b72a069c",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765608806557,
+      "secretData" : "{\"answer\":\"mango\"}",
+      "credentialData" : "{\"question\":\"What is your favorite food?\"}"
+    }, {
+      "id" : "b4e8f412-f459-4755-a3d0-85d3f68f09b4",
       "type" : "otp",
-      "userLabel" : "private phone",
-      "createdDate" : 1765552776556,
-      "secretData" : "{\"value\":\"BkuxAQ6gtgpy5DTTVKI1\"}",
+      "userLabel" : "mphone",
+      "createdDate" : 1765609081840,
+      "secretData" : "{\"value\":\"RORWUTIT5AzNVLvOroC4\"}",
       "credentialData" : "{\"subType\":\"totp\",\"digits\":6,\"counter\":0,\"period\":30,\"algorithm\":\"HmacSHA1\"}"
     } ],
     "disableableCredentialTypes" : [ ],
@@ -489,6 +625,64 @@
     "clientRoles" : {
       "frontend-app" : [ "uma_protection" ]
     },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "2114faa4-f1dd-4725-b87b-a862b53ebd70",
+    "username" : "test",
+    "firstName" : "ee",
+    "lastName" : "ee",
+    "email" : "sfds@sd.d",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765612742708,
+    "totp" : false,
+    "credentials" : [ {
+      "id" : "5560fd03-1d45-4b02-8ef4-40a8632677c1",
+      "type" : "password",
+      "createdDate" : 1765612742811,
+      "secretData" : "{\"value\":\"X+O26/2tlaFQbFIEePNVJhvfexJF7AECsb1764dtObg=\",\"salt\":\"RzcONCejIe8pByJNAvC4UA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "9aee4c6d-89c3-4900-b070-56f5a09f50cc",
+      "type" : "SECRET_QUESTION",
+      "createdDate" : 1765612746471,
+      "secretData" : "{\"answer\":\"ee\"}",
+      "credentialData" : "{\"question\":\"What is your favorite food?\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
+    "id" : "9e22e21e-b048-4ccf-9ff7-fd32fc6d3181",
+    "username" : "zeo",
+    "firstName" : "z",
+    "lastName" : "oe",
+    "email" : "z@test.com",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1765580085355,
+    "totp" : true,
+    "credentials" : [ {
+      "id" : "309c28c8-db9a-4293-a7ab-98c2d55bd400",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1765580107581,
+      "secretData" : "{\"value\":\"MXXMbE0EIcE25PC4XvSyLooLuEBHFJsRoTDJ9MJ38J4=\",\"salt\":\"wMB+jTPrwD6Qh8MRygKo6A==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+    }, {
+      "id" : "2b3faa8f-670c-42e5-a925-fccf764d86dd",
+      "type" : "otp",
+      "userLabel" : "zphone",
+      "createdDate" : 1765605552600,
+      "secretData" : "{\"value\":\"q7V2lOCWrGdS6IVPmycW\"}",
+      "credentialData" : "{\"subType\":\"totp\",\"digits\":6,\"counter\":0,\"period\":30,\"algorithm\":\"HmacSHA1\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-ibm" ],
     "notBefore" : 0,
     "groups" : [ ]
   } ],
@@ -1686,18 +1880,18 @@
       "autheticatorFlow" : false,
       "userSetupAllowed" : false
     }, {
-      "authenticator" : "conditional-user-configured",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 51,
-      "autheticatorFlow" : false,
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 53,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Allow Access",
       "userSetupAllowed" : false
     }, {
-      "authenticator" : "auth-otp-form",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 52,
-      "autheticatorFlow" : false,
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 54,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Deny Access",
       "userSetupAllowed" : false
     } ]
   }, {
@@ -1720,6 +1914,28 @@
       "priority" : 20,
       "autheticatorFlow" : true,
       "flowAlias" : "Verify Existing Account by Re-authentication",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "e4c88b1f-ea3b-4092-90fd-1e84b4082f06",
+    "alias" : "Allow Access",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "conditional-user-configured",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 0,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "auth-otp-form",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 1,
+      "autheticatorFlow" : false,
       "userSetupAllowed" : false
     } ]
   }, {
@@ -1923,6 +2139,292 @@
       "userSetupAllowed" : false
     } ]
   }, {
+    "id" : "6b57488f-2307-4edb-b7c6-da524672d6fa",
+    "alias" : "Copy of browser",
+    "description" : "Browser based authentication",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-cookie",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 10,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "auth-spnego",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "identity-provider-redirector",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 25,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 26,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of browser Organization",
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 30,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of browser forms",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "8b85ddd1-445c-4f07-8abb-e9c3dd5007f3",
+    "alias" : "Copy of browser Browser - Conditional 2FA",
+    "description" : "Flow to determine if any 2FA is required for the authentication",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "conditional-user-configured",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorConfig" : "Copy of browser browser-conditional-credential",
+      "authenticator" : "conditional-credential",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "auth-otp-form",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 30,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "webauthn-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 40,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "auth-recovery-authn-code-form",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 50,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "84200492-d0c7-4cab-a461-5876a4072b27",
+    "alias" : "Copy of browser Browser - Conditional Organization",
+    "description" : "Flow to determine if the organization identity-first login is to be used",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "conditional-user-configured",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "organization",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "cebf8ca4-cf99-4d2e-8398-44f38100b494",
+    "alias" : "Copy of browser Organization",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 10,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of browser Browser - Conditional Organization",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "f449f9e4-196c-43ac-9167-49822d4cedc0",
+    "alias" : "Copy of browser SecretQ",
+    "description" : "Browser based authentication",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-cookie",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 10,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 30,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of browser SecretQ forms",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "fd1d40ad-4db6-4b40-a867-b25bdb96161f",
+    "alias" : "Copy of browser SecretQ forms",
+    "description" : "Username, password, otp and other auth forms.",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-username-password-form",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 21,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorConfig" : "multi-select",
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 28,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Second step",
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 29,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Enforce Second Step",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "673f7776-57d0-4e6e-9b86-c067f6b16e25",
+    "alias" : "Copy of browser forms",
+    "description" : "Username, password, otp and other auth forms.",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-username-password-form",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 20,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of browser Browser - Conditional 2FA",
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "secret-question-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 21,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "0cdf1a64-3252-43a6-b4ee-bbea4cd5ae5e",
+    "alias" : "Copy of registration",
+    "description" : "Registration flow",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-page-form",
+      "authenticatorFlow" : true,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Copy of registration registration form",
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "REQUIRED",
+      "priority" : 11,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Register authenticators",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "906b59ff-88ff-467d-9234-18ee25de92d6",
+    "alias" : "Copy of registration registration form",
+    "description" : "Registration form",
+    "providerId" : "form-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-user-creation",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-password-action",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 50,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-recaptcha-action",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 60,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-terms-and-conditions",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 70,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "414045a4-11c8-4f1c-8e59-60f4397b46fb",
+    "alias" : "Deny Access",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticatorConfig" : "not-allowed",
+      "authenticator" : "conditional-sub-flow-executed",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 0,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "deny-access-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 1,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
     "id" : "3d6ab9c7-4e58-40a6-b6f1-723714a39dea",
     "alias" : "Direct Grant - Conditional OTP",
     "description" : "Flow to determine if the OTP is required for the authentication",
@@ -1941,6 +2443,29 @@
       "authenticatorFlow" : false,
       "requirement" : "REQUIRED",
       "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "19d0cf79-ba5f-4603-ae3b-c0141f0b2242",
+    "alias" : "Enforce Second Step",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticatorConfig" : "2fa",
+      "authenticator" : "conditional-sub-flow-executed",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 0,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "secret-question-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 1,
       "autheticatorFlow" : false,
       "userSetupAllowed" : false
     } ]
@@ -2047,6 +2572,132 @@
       "userSetupAllowed" : false
     } ]
   }, {
+    "id" : "ce3a3a7c-eebf-471b-ac99-8918b941bb68",
+    "alias" : "Register authenticators",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "secret-question-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 0,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "6b2d44c5-e923-4b15-8227-7a2e0509c8d8",
+    "alias" : "Registration with auth init",
+    "description" : "Registration flow",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-page-form",
+      "authenticatorFlow" : true,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Registration with auth init registration form",
+      "userSetupAllowed" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "REQUIRED",
+      "priority" : 11,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Secret Question init",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "faa882a6-569c-4101-a7d3-df7c1143f6ec",
+    "alias" : "Registration with auth init registration form",
+    "description" : "Registration form",
+    "providerId" : "form-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-user-creation",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-password-action",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 50,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-recaptcha-action",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 60,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-terms-and-conditions",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 70,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "8ba1a25a-af78-4bb6-9094-36c176c113bf",
+    "alias" : "Registration with secret q",
+    "description" : "Registration flow",
+    "providerId" : "basic-flow",
+    "topLevel" : true,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-page-form",
+      "authenticatorFlow" : true,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "autheticatorFlow" : true,
+      "flowAlias" : "Registration with secret q registration form",
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "21bfb93b-5655-45aa-985e-5a3ce01242d5",
+    "alias" : "Registration with secret q registration form",
+    "description" : "Registration form",
+    "providerId" : "form-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "registration-user-creation",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-password-action",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 50,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-recaptcha-action",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 60,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "registration-terms-and-conditions",
+      "authenticatorFlow" : false,
+      "requirement" : "DISABLED",
+      "priority" : 70,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
     "id" : "d9979f66-5e68-46e4-a7b2-21715aa604ef",
     "alias" : "Reset - Conditional OTP",
     "description" : "Flow to determine if the OTP should be reset or not. Set to REQUIRED to force.",
@@ -2065,6 +2716,50 @@
       "authenticatorFlow" : false,
       "requirement" : "REQUIRED",
       "priority" : 20,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "3705262e-de92-4423-a0d5-f57e833ac5e5",
+    "alias" : "Second step",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "secret-question-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 0,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "auth-otp-form",
+      "authenticatorFlow" : false,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 1,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    }, {
+      "authenticator" : "conditional-user-configured",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 2,
+      "autheticatorFlow" : false,
+      "userSetupAllowed" : false
+    } ]
+  }, {
+    "id" : "6b6e250f-b85e-4e56-9279-714e52c3ff7d",
+    "alias" : "Secret Question init",
+    "description" : "",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "secret-question-authenticator",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 0,
       "autheticatorFlow" : false,
       "userSetupAllowed" : false
     } ]
@@ -2429,6 +3124,13 @@
     } ]
   } ],
   "authenticatorConfig" : [ {
+    "id" : "a8a4d65d-3b27-46a7-9bfd-27541292252f",
+    "alias" : "2fa",
+    "config" : {
+      "flow_to_check" : "Second step",
+      "check_result" : "not-executed"
+    }
+  }, {
     "id" : "2c7a050d-811c-4d11-a856-a2d1f45f50f4",
     "alias" : "Browser with 2fa Level 1",
     "config" : {
@@ -2441,6 +3143,12 @@
     "config" : {
       "loa-condition-level" : "2",
       "loa-max-age" : "0"
+    }
+  }, {
+    "id" : "3debc448-539a-4c4f-9a63-6c5fdcfa35a8",
+    "alias" : "Copy of browser browser-conditional-credential",
+    "config" : {
+      "credentials" : "webauthn-passwordless"
     }
   }, {
     "id" : "398b1083-beb8-4a5c-813d-0b900f74a093",
@@ -2473,6 +3181,17 @@
     "alias" : "first-broker-login-conditional-credential",
     "config" : {
       "credentials" : "webauthn-passwordless"
+    }
+  }, {
+    "id" : "02d4f4a2-efca-4c8b-a494-8c4fd32b6fbf",
+    "alias" : "multi-select",
+    "config" : { }
+  }, {
+    "id" : "23fb3534-c31b-42cb-b7b4-8ef51fc75896",
+    "alias" : "not-allowed",
+    "config" : {
+      "flow_to_check" : "Allow Access",
+      "check_result" : "not-executed"
     }
   }, {
     "id" : "70330298-00cc-4041-ac38-47d9122ce206",
@@ -2593,9 +3312,17 @@
     "defaultAction" : false,
     "priority" : 1000,
     "config" : { }
+  }, {
+    "alias" : "secret_question_config",
+    "name" : "Secret Question",
+    "providerId" : "secret_question_config",
+    "enabled" : true,
+    "defaultAction" : false,
+    "priority" : 1001,
+    "config" : { }
   } ],
-  "browserFlow" : "browser",
-  "registrationFlow" : "registration",
+  "browserFlow" : "Copy of browser SecretQ",
+  "registrationFlow" : "Registration with auth init",
   "directGrantFlow" : "direct grant",
   "resetCredentialsFlow" : "reset credentials",
   "clientAuthenticationFlow" : "clients",
