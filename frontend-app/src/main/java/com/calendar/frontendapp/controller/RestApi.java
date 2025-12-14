@@ -13,7 +13,7 @@ public class RestApi {
 
     @GetMapping("/api/calendar")
     @ResponseBody
-    public Mono<Map<String, Object>> calendarData() {
-        return Mono.fromCallable(CalendarGenerator::generateWeekCalendar);
+    public Map<String, Object> calendarData() {
+        return CalendarGenerator.generateWeekCalendar();
     }
 }
